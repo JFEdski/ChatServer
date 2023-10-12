@@ -11,7 +11,7 @@ const MessageSchema = new mongoose.Schema({
     type: String,
     required: true 
   },
-  ownerId: __id,
+  ownerId: _id,
   roomId: room
 })
 
