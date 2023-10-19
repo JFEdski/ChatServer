@@ -28,8 +28,6 @@ router.post('/:id', async (req, res) => {
 
 res.status(200).json({message:'Message Posted ;)!'})
   
-   
-  //?4. assuming our pizza was added to the database successfully, we send a response
   
   } catch (err) {
     res.status(500).json({
