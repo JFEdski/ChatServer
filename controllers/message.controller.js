@@ -17,7 +17,7 @@ router.post('/:id', async (req, res) => {
     
     date: currentDate,
     text: req.body.text,
-    owner: req.user._id,
+    ownerId: req.user._id,
   };
 
   //! Creating a new message
