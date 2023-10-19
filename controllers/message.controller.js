@@ -12,7 +12,7 @@ function errorResponse(res, err) {
 router.post('/:id', async (req, res) => {
   try{
   //! req for posting message
-  // we need toppings - string, crust - string, and slices - number
+
   const userMessage = {
     
     date: currentDate,
@@ -27,7 +27,7 @@ router.post('/:id', async (req, res) => {
   const newMessage = await messagePost.save(); 
 
 res.status(200).json({message:'Message Posted ;)!'})
-  // newPizza.save().then(saved => {
+  
    
   //?4. assuming our pizza was added to the database successfully, we send a response
   
