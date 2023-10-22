@@ -11,8 +11,8 @@ const MessageSchema = new mongoose.Schema({
     type: String,
     required: true 
   },
-  ownerId: _id,
-  roomId: room
+  ownerId: String,
+  roomId: String
 })
 
 module.exports = mongoose.model('Message', MessageSchema);

@@ -6,8 +6,8 @@ function errorResponse(res, err) {
     ERROR: err.message,
   });
 };
-
-router.post("/room", async (req, res) => {
+ //! Create Room
+router.post("/create", async (req, res) => {
   
   try {
     const messageRoom = {
@@ -30,7 +30,7 @@ router.post("/room", async (req, res) => {
 });
 
 // Get Single Room
-router.get('/room/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const singleRoom = await Room.findOne({ _id: req.params.id });
 
@@ -75,7 +75,6 @@ router.patch('/:id', async(req, res) => {
       updated
     })
     
-    res.send('Patch Endpoint');
 } catch (err) {
     errorResponse(res, err);
 }
@@ -87,7 +86,7 @@ router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   let owner = req.user.id;
   const deletedRoom = await Room.deleteOne({ _id: id, owner });
-if (!deletedPizza.deletedCount) {
+if (!deletedRoom.deletedCount) {
   throw new Error('Could not find room')
 } 
   res.status(200).json({ 

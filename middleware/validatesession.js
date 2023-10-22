@@ -6,7 +6,9 @@ async function validateSession(req, res, next) {
   const token = req.headers.authorization;
 
   const decoded = await jwt.verify(token, process.env.JWT);
+
 const user = await User.findById(decoded.id);
+
 if (!user) throw new Error("User Not Found")
 req.user = user;
 
