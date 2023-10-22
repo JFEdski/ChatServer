@@ -12,15 +12,16 @@ const encryptPassword = (password) => {
 router.post('/signup', async (req, res) => {
   try {
     const user = new User({
-      firstName: req.body.first,
-      lastName: req.body.last,
+      userName: req.body.name,
       email: req.body.mail,
       password: bcrypt.hashSync(req.body.pass, 13)
     });
 
     const newUser = await user.save();
 
-    const token = jwt.sign({ id: newUser['_id'] }, process.env.JWT, { expiresIn: "1 day" });
+    const token = jwt.sign({ id: newUser['_id'] }, 
+    process.env.JWT, 
+    { expiresIn: "1 day" });
 
     res.status(200).json({
       user: newUser,

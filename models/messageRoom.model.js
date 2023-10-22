@@ -9,13 +9,16 @@ const messageRoomSchema = new mongoose.Schema({
     unique: true
   },
   description: {
-    type: String,
+    type: String, Number
   },
   messages: {
     type: Array,
-    required: true
+    required: false
   },
-  ownerId: _id
+  ownerId: { 
+    type: String, Number,
+  required: true
+  },
 })
 
 module.exports = mongoose.model('messageRoom', messageRoomSchema);
